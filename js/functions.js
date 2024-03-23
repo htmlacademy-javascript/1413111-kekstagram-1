@@ -14,11 +14,14 @@ function checkingPalindrome(word) {
   }
   return newWord.toUpperCase() === wordOpposite.toUpperCase();
 }
-if (checkingPalindrome('Лёша на полке клопа нашёл ')) {
-  console.log('right');
-} else {
-  console.log('wrong');
+checkingPalindrome('word');
+//or
+function isPalindrom(srting) {
+  const palindrom = srting.toLowerCase().replaceAll(' ', '');
+  return palindrom === palindrom.split().reverse().join();
 }
+isPalindrom('hi');
+
 
 //task2
 function getNum(param) {
@@ -35,24 +38,35 @@ function getNum(param) {
     return NaN;
   }
 }
-console.log(getNum(1.5));
+getNum('param2');
+//or
+function chekingNum(string) {
+  let num = '';
+  if (typeof (string) === 'string') {
+    for (let i = 0; i < string.length; i++) {
+      if (!Number.isNaN(parseInt(string[i], 10))) {
+        num = num + string[i];
+      }
+    }
+    return parseInt(num, 10);
+  } else {
+    return string;
+  }
+}
+chekingNum('param2');
 
 //task3
-function addingLine(origLine, minLenght, addWord) {
-  let newWord = '';
-  for (let index = 0; index < minLenght - 1; index++) {
-    newWord = newWord + addWord;
+function getPadStart(string, minLenght, pad) {
+  const actualPad = minLenght - string.length;
+  if (actualPad <= 0) {
+    return string;
   }
-  if (newWord.length > minLenght) {
-    newWord = newWord.slice(0, minLenght - 1);
-  }
-  newWord = newWord + origLine;
-  return newWord;
+  return pad.slice(0, actualPad % pad.length) + pad.repeat(actualPad / pad.length) + string;
 }
-console.log(addingLine('q', 4, 'werty'));
+getPadStart('qwerty', 4, '0');
 
 //task4
 function checkingString(str, maxLen) {
   return str.length <= maxLen;
 }
-console.log(checkingString('проверяемая строка', 10));
+checkingString('проверяемая строка', 10);
