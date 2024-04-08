@@ -1,7 +1,4 @@
-import {
-  getRandomInteger,
-  getRandomArrElem
-} from './utils.js';
+import * as U from './utils.js';
 
 const LIKE_MIN = 15;
 const LIKE_MAX = 200;
@@ -26,16 +23,16 @@ const NAMES = ['Игорь', 'Владимир', 'Оксана', 'Виктори
 
 function createMessage() {
   return Array.from({
-    length: getRandomInteger(1, 2)
-  }, () => getRandomArrElem(MESSAGES)).join(' ');
+    length: U.getRandomInteger(1, 2)
+  }, () => U.getRandomArrElem(MESSAGES)).join(' ');
 }
 
 function createComment(j) {
   return {
     id: j,
-    avatar: `img/avatar-${getRandomInteger(1, 6)}.svg`,
+    avatar: `img/avatar-${U.getRandomInteger(1, 6)}.svg`,
     message: createMessage(),
-    name: getRandomArrElem(NAMES),
+    name: U.getRandomArrElem(NAMES),
   };
 }
 
@@ -43,10 +40,10 @@ function createPost(i) {
   return {
     id: i,
     url: `photos/${i}.jpg`,
-    description: getRandomArrElem(DESCS),
-    likes: getRandomInteger(LIKE_MIN, LIKE_MAX),
+    description: U.getRandomArrElem(DESCS),
+    likes: U.getRandomInteger(LIKE_MIN, LIKE_MAX),
     comments: Array.from({
-      length: getRandomInteger(1, COMMENT_COUNT)
+      length: U.getRandomInteger(1, COMMENT_COUNT)
     }, (_, j) => createComment(j)),
   };
 }
