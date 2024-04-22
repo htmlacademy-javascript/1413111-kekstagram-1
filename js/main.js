@@ -1,3 +1,5 @@
-import { getSimilarPosts } from './data.js';
+import {
+  renderMiniPic
+} from './pic-mini.js';
 
-getSimilarPosts();
+renderMiniPic();
