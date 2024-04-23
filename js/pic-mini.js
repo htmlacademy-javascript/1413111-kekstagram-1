@@ -1,16 +1,12 @@
-import {
-  getSimilarPosts
-} from './data.js';
-
 const similarMiniPicElems = document.querySelector('.pictures');
 const miniPicTemplate = document.querySelector('#picture').content.querySelector('.picture');
 
 
-const similarPost = getSimilarPosts();
+// const similarPostsData = getSimilarPosts();
 const similarListFragment = document.createDocumentFragment();
 
-function renderMiniPic() {
-  similarPost.forEach(({
+function renderMiniPics(similarPostsData) {
+  similarPostsData.forEach(({
     url,
     likes,
     comments
@@ -28,5 +24,5 @@ function renderMiniPic() {
 }
 
 export {
-  renderMiniPic
+  renderMiniPics
 };
