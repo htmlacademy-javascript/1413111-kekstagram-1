@@ -1,3 +1,10 @@
-import { getSimilarPosts } from './data.js';
+import {
+  getSimilarPosts
+} from './data.js';
 
-getSimilarPosts();
+import {
+  renderMiniPics
+} from './pic-mini.js';
+
+const similarPostsData = getSimilarPosts();
+renderMiniPics(similarPostsData);
